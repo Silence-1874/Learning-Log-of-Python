@@ -48,21 +48,21 @@ while True:
 
     if op == 1:
         sn, name, score = input("请分别输入学生的学号，姓名与成绩（用空格隔开）\n").split()  # 用户输入学生数据
-        stu.clear()  # 清空临时数据
-        stu.append(sn)  # 添加学号
-        stu.append(name)  # 添加姓名
-        stu.append(score)  # 添加成绩
+        stu.clear()         # 清空临时数据
+        stu.append(sn)      # 添加学号
+        stu.append(name)    # 添加姓名
+        stu.append(score)   # 添加成绩
         students.append(stu[:])  # 将当前学生信息添加到students列表中
         s = sn + "\t" + name + "\t" + score + "\n"  # 格式化当前信息
-        print(s)  # 将当前信息显示到控制台
+        print(s)            # 将当前信息显示到控制台
         with open(filename, 'a') as f:  # 将当前信息写入文件
             f.write(s)
     elif op == 2:
         s1 = "最高分为：" + str(get_max(students)) + "\n"  # 求最高分
         s2 = "最低分为：" + str(get_min(students)) + "\n"  # 求最低分
         s3 = "平均分为：" + str(get_avg(students)) + "\n"  # 求平均分
-        s = s1 + s2 + s3  # 格式化当前信息
-        print(s)  # 将当前信息显示到控制台
+        s = s1 + s2 + s3    # 格式化当前信息
+        print(s)            # 将当前信息显示到控制台
         with open(filename, 'a') as f:  # 将当前信息写入文件
             f.write(s)
     elif op == 3:
