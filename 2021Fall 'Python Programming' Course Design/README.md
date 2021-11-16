@@ -20,11 +20,11 @@
 - Python IDE——PyCharm 2020.1
 - 数据库可视化管理工具——Navicat Premium 15.0.9
 
-# 1.获得数据集（crawler.py）
+# 获得数据集（crawler.py）
 
-## 1.1 分析网页结构
+## 1.分析网页结构
 
-### 1.1.1 概览
+### (1)概览
 
 打开第二课堂网页
 
@@ -58,7 +58,7 @@
 
 - list：各个组织的相关信息![image-20211114093457578](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114093457578.png) 
 
-### 1.1.2 深入查看list?开头XHR的Response
+### (2)深入查看list?开头XHR的Response
 
 `data`中的`total`对应活动总条目数
 
@@ -98,7 +98,7 @@
 }
 ```
 
-## 1.2 确定数据爬取接口
+## 2 确定数据爬取接口
 
 这个比较简单，查看XHR的请求头就行
 
@@ -119,11 +119,11 @@
 }
 ```
 
-## 1.3 保持登录状态
+## 3 保持登录状态
 
 在XHR中找到Authorization和Cookie![image-20211114102047963](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114102047963.png) 
 
-## 1.4 爬取数据并存储到MongoDB中
+## 4 爬取数据并存储到MongoDB中
 
 运行代码
 
@@ -137,10 +137,19 @@
 
 
 
-# 2.数据可视化与分析（main.py）
+# 数据可视化与分析（main.py）
 
-## 2.1 数据预处理
+## 1 数据预处理
 
+- 活动名称去重
+
+    ```python
+    for ac in collection.distinct('活动名称'):
+        repeating = collection.find_one({'活动名称': ac})
+        collection.delete_many({'活动名称': ac})
+        collection.insert_one(repeating)
+    ```
+    
 - 删除不含实际内容的“学时补录”的相关记录![image-20211115162928150](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211115162928150.png) 
 
     ```python
@@ -160,13 +169,15 @@
 
 - 去除“活动联系人”字段前面的学号![image-20211115204256680](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211115204256680.png) 
 
-    初步处理完毕，效果如下：
+	```python
+	all = collection.find({})
+	for ac in all:
+    	name = re.sub(r'[0-9]', '', ac['活动联系人'])
+    	collection.update_one({'_id': ac['_id']}, {'$set': {'活动联系人': name}})
+	```
 
-    ![image-20211115204522717](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211115204522717.png) 
+## 2.分析与可视化
 
-    ```python
-    all = collection.find({})
-    for ac in all:
-        name = re.sub(r'[0-9]', '', ac['活动联系人'])
-        collection.update_one({'_id': ac['_id']}, {'$set': {'活动联系人': name}})
-    ```
+### (1)学时总排名（`bar_1()`）
+
+![image-20211116153327593](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211116153327593.png) 
