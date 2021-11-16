@@ -134,3 +134,39 @@
 ![image-20211114112251447](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114112251447.png) 
 
 代码详见`crawler.py`
+
+
+
+# 2.数据可视化与分析（main.py）
+
+## 2.1 数据预处理
+
+- 删除不含实际内容的“学时补录”的相关记录![image-20211115162928150](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211115162928150.png) 
+
+    ```python
+    collection.delete_many({'活动名称': {'$regex': '学时补录'}})
+    ```
+
+- 将活动地点统一为大写
+
+    ![image-20211115165833880](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211115165833880.png) 
+
+    ```python
+    all = collection.find({})
+    for ac in all:
+        new = ac['活动地点'].upper()
+        collection.update_one({'_id': ac['_id']}, {'$set': {'活动地点': new}})![image-20211115201627691](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211115201627691.png) 
+    ```
+
+- 去除“活动联系人”字段前面的学号![image-20211115204256680](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211115204256680.png) 
+
+    初步处理完毕，效果如下：
+
+    ![image-20211115204522717](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211115204522717.png) 
+
+    ```python
+    all = collection.find({})
+    for ac in all:
+        name = re.sub(r'[0-9]', '', ac['活动联系人'])
+        collection.update_one({'_id': ac['_id']}, {'$set': {'活动联系人': name}})
+    ```
