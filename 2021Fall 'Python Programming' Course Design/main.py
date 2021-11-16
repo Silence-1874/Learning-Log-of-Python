@@ -7,9 +7,9 @@ client = pymongo.MongoClient(host='localhost', port=27017)
 # 连接数据库
 db = client['test']
 # 选择集合
-collection = db['second_classroom'
+collection = db['second_classroom' ]
 
-]
+
 def pretreat():
     """
     @Author Silence
@@ -17,6 +17,13 @@ def pretreat():
     @Description 数据预处理
     """
 
+    # 活动名称去重
+    for ac in collection.distinct('活动名称'):
+        repeating = collection.find_one({'活动名称': ac})
+        collection.delete_many({'活动名称': ac})
+        collection.insert_one(repeating)
+
+    # 删除不含实际内容的“学时补录”
     collection.delete_many({'活动名称': {'$regex': '学时补录'}})
 
     all = collection.find({})
