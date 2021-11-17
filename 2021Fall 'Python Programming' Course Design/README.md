@@ -1,5 +1,5 @@
 本人对人工智能方向并不感兴趣，更喜欢写一些小爬虫和自动化脚本这类相对更实用的工具。
-之前正好写了一个[第二课堂抢课脚本](https://github.com/Silence-Zoe/JNU-Auto-SecondClassroom)，不过其中用到的爬虫代码比较简单，于是打算把第二课堂的数据全部爬取下来，进行数据可视化与分析（也更方便决定以后要抢哪些二课）。
+之前正好写了一个第二课堂抢课脚本（repo地址：https://github.com/Silence-Zoe/JNU-Auto-SecondClassroom），不过其中用到的爬虫代码比较简单，于是打算把第二课堂的数据全部爬取下来，进行数据可视化与分析（也更方便决定以后要抢哪些二课）。
 
 主要用到的lib：
 
@@ -206,4 +206,10 @@
 ### (4)兵家必争之地——活动地点使用频率top10（`visualize_4.py`）
 
 ![image-20211117201018042](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211117201018042.png) 
+
+### (5)大慈善家——活动主办方发布的活动总数/学时总数（`visualize_5.py`）
+
+![image-20211117212129329](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211117212129329.png)  
+
+我们学院虽然去年才成立，但发布活动数量和总学时还是相当多的。
 
