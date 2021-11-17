@@ -29,13 +29,13 @@ Qurey_String_Parameters = {
 }
 
 
+# 核心代码
 def crawl():
-    '''
+    """
     @Author Silence
     @Date 2021/11/14 8:59
     @Description 获得数据集
-    '''
-    # 开启会话
+    """
     session = requests.session()
     # 请求活动列表
     response = session.request(method='get',
@@ -57,7 +57,6 @@ def crawl():
                                    params=Qurey_String_Parameters,
                                    headers=Headers)
         response.encoding = response.apparent_encoding
-
         data = response.json()
         for active in data['data']['list']:
             active = {
