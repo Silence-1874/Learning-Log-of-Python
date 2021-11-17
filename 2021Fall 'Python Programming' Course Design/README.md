@@ -178,6 +178,20 @@
 
 ## 2.分析与可视化
 
-### (1)学时总排名（`bar_1()`）
+### (1)学时总排名（`visualize_1.py`）
 
 ![image-20211116153327593](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211116153327593.png) 
+
+### (2)活动性价比——学时/小时(`visualize_2.py`)
+
+#### ①最值活动top50（`bar_2()`）
+
+![image-20211116212749008](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211116212749008.png) 
+
+#### ②最亏活动top50（`bar_3()`）![image-20211117095839825](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211117095839825.png) 
+
+#### ③性价比占比（`pie_1()`）
+
+![image-20211117111527580](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211117111527580.png) 
+
+可以看出，近四分之一的活动都是一个小时一个学时，近三分之二的活动性价比在1-2之间。
