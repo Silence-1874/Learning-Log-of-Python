@@ -218,3 +218,7 @@
 ![image-20211118122244076](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211118122244076.png) 
 
 每年的4月5月，11月12月是活动的高峰期，活动总数也在逐年上升。
+
+### (7)活动狂热者——发布活动数top10的创建人（`visualize_7.py`）
+
+![image-20211118163957131](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211118163957131.png) 
