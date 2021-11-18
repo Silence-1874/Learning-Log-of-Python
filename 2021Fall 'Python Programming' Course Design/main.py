@@ -1,9 +1,12 @@
 import pymongo
 import re
-import plotly
-import plotly.graph_objs as go
 import visualize_1
-
+import visualize_2
+import visualize_3
+import visualize_4
+import visualize_5
+import visualize_6
+import visualize_7
 
 # 通过地址和端口号,获得MongoDB连接对象
 client = pymongo.MongoClient(host='localhost', port=27017)
@@ -42,7 +45,15 @@ def pretreat():
 if __name__ == '__main__':
     print('start...')
     # -------------------------------------------------------
-    # pretreat()
+    pretreat()
     visualize_1.bar_1()
+    visualize_2.bar_2()
+    visualize_2.bar_3()
+    visualize_2.pie_1()
+    visualize_3.bubble()
+    visualize_4.scatter()
+    visualize_5.pie_2()
+    visualize_6.line()
+    visualize_7.bar_4()
     # -------------------------------------------------------
     print('finish!')
