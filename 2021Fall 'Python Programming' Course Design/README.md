@@ -28,49 +28,49 @@
 
 打开第二课堂网页
 
-![image-20211114090706835](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114090706835.png) 
+![image-20211114090706835](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/1.png) 
 
 这种数据一般都是Ajax加载的，不过还是先看下页面源码
 
-![image-20211114090646780](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114090646780.png) 
+![image-20211114090646780](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/2.png) 
 
 显然没有我要的数据，按F12打开Developer Tools，选择Network中的Fetch/XHR，刷新页面，开始抓包
 
-![image-20211114093216154](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114093216154.png)
+![image-20211114093216154](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/3.png)
 
 捕获一些XHR请求，逐个查看
 
-- 第一个me：左边的信息栏![image-20211114091846148](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114091846148.png) 
+- 第一个me：左边的信息栏![image-20211114091846148](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/4.png) 
 
 - adbr?_o=https://miao.baidu.com/abdr?_o=http%3A%2F%2Fdekt.jiangnan.edu.cn：没什么用
 
-    ![image-20211114093323681](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114093323681.png) 
+    ![image-20211114093323681](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/5.png) 
 
 - 第二个me：首页的个人信息
 
-    ![image-20211114093341875](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114093341875.png)  
+    ![image-20211114093341875](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/6.png)  
 
-    ![image-20211114092840813](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114092840813.png) 
+    ![image-20211114092840813](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/7.png) 
 
 - list?开头的XHR：各种活动信息，显然，这就是我要找的
 
-    ![image-20211114093430017](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114093430017.png) 
+    ![image-20211114093430017](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/8.png) 
 
-- list：各个组织的相关信息![image-20211114093457578](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114093457578.png) 
+- list：各个组织的相关信息![image-20211114093457578](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/9.png) 
 
 ### (2)深入查看list?开头XHR的Response
 
 `data`中的`total`对应活动总条目数
 
-![image-20211114094308883](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114094308883.png) 
+![image-20211114094308883](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/10.png) 
 
 `list`对应一个个活动
 
-![image-20211114094428023](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114094428023.png) 
+![image-20211114094428023](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/11.png) 
 
 每一个list值记录了对应活动的详细信息
 
-![image-20211114094614413](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114094614413.png) 
+![image-20211114094614413](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/12.png) 
 
 共计56个键值对，从中挑选出了主要的16个，对应如下
 
@@ -102,7 +102,7 @@
 
 这个比较简单，查看XHR的请求头就行
 
-![image-20211114101721928](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114101721928.png)  
+![image-20211114101721928](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/13.png)  
 
 其中，请求参数(Query String Parameters)对应如下
 
@@ -121,17 +121,17 @@
 
 ## 3 保持登录状态
 
-在XHR中找到Authorization和Cookie![image-20211114102047963](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114102047963.png) 
+在XHR中找到Authorization和Cookie![image-20211114102047963](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/14.png) 
 
 ## 4 爬取数据并存储到MongoDB中
 
 运行代码
 
-![image-20211114111950686](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114111950686.png) 
+![image-20211114111950686](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/15.png) 
 
 打开Navicat，查看MongoDB，发现数据已全部抓取
 
-![image-20211114112251447](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211114112251447.png) 
+![image-20211114112251447](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/16.png) 
 
 代码详见`crawler.py`
 
@@ -150,7 +150,7 @@
         collection.insert_one(repeating)
     ```
     
-- 删除不含实际内容的“学时补录”的相关记录![image-20211115162928150](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211115162928150.png) 
+- 删除不含实际内容的“学时补录”的相关记录![image-20211115162928150](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/17.png) 
 
     ```python
     collection.delete_many({'活动名称': {'$regex': '学时补录'}})
@@ -158,7 +158,7 @@
 
 - 将活动地点统一为大写
 
-    ![image-20211115165833880](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211115165833880.png) 
+    ![image-20211115165833880](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/18.png) 
 
     ```python
     all = collection.find({})
@@ -167,7 +167,7 @@
         collection.update_one({'_id': ac['_id']}, {'$set': {'活动地点': new}})![image-20211115201627691](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211115201627691.png) 
     ```
 
-- 去除“活动联系人”字段前面的学号![image-20211115204256680](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211115204256680.png) 
+- 去除“活动联系人”字段前面的学号![image-20211115204256680](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/19.png) 
 
 	```python
 	all = collection.find({})
@@ -180,48 +180,48 @@
 
 ### (1)学时总排名（`visualize_1.py`）
 
-![image-20211116153327593](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211116153327593.png) 
+![image-20211116153327593](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/20.png) 
 
 ### (2)活动性价比——学时/小时(`visualize_2.py`)
 
 #### ①最值活动top50（`bar_2()`）
 
-![image-20211116212749008](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211116212749008.png) 
+![image-20211116212749008](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/21.png) 
 
-#### ②最亏活动top50（`bar_3()`）![image-20211117095839825](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211117095839825.png) 
+#### ②最亏活动top50（`bar_3()`）![image-20211117095839825](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211117095839822.png) 
 
 #### ③性价比占比（`pie_1()`）
 
-![image-20211117111527580](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211117111527580.png) 
+![image-20211117111527580](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/23.png) 
 
 可以看出，近四分之一的活动都是一个小时一个学时，近三分之二的活动性价比在1-2之间。
 
 ### (3)时间区间（`visualize_3.py`）
 
-![image-20211117164714405](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211117164714405.png)
+![image-20211117164714405](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/24.pngg)
 
 气泡的大小和颜色反映了频率。
 可以发现大多数活动的开始时间在下午14点到16点之间，以及18点到20点之间，而结束时间则大都在16点到18点之间，20点到22点之间，这与前面所得出的结论一致。
 
 ### (4)兵家必争之地——活动地点使用频率top10（`visualize_4.py`）
 
-![image-20211117201018042](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211117201018042.png) 
+![image-20211117201018042](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/25.png) 
 
 ### (5)大慈善家——活动主办方发布的活动总数/学时总数（`visualize_5.py`）
 
-![image-20211117212129329](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211117212129329.png)  
+![image-20211117212129329](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/26.png)  
 
 我们学院虽然去年才成立，但发布活动数量和总学时还是相当多的。
 
 ### (6)多事之秋——各学期活动总数（`visualize_6.py`）
 
-![image-20211118122244076](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211118122244076.png) 
+![image-20211118122244076](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/27.png) 
 
 每年的4月5月，11月12月是活动的高峰期，活动总数也在逐年上升。
 
 ### (7)活动狂热者——发布活动数top10的创建人（`visualize_7.py`）
 
-![image-20211118163957131](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211118163957131.png) 
+![image-20211118163957131](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/28.png) 
 
 
 
