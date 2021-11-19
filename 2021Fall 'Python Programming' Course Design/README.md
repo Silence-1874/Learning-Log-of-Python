@@ -188,7 +188,7 @@
 
 ![image-20211116212749008](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/21.png) 
 
-#### ②最亏活动top50（`bar_3()`）![image-20211117095839825](C:\Users\22458\AppData\Roaming\Typora\typora-user-images\image-20211117095839822.png) 
+#### ②最亏活动top50（`bar_3()`）![image-20211117095839825](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/22.png) 
 
 #### ③性价比占比（`pie_1()`）
 
