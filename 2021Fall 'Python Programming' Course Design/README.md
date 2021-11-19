@@ -42,7 +42,7 @@
 
 - 第一个me：左边的信息栏![image-20211114091846148](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/4.png) 
 
-- adbr?_o=https://miao.baidu.com/abdr?_o=http%3A%2F%2Fdekt.jiangnan.edu.cn：没什么用
+- adbr?_o=https://miao.baidu.com/abdr?_o=http%3A%2F%2Fdekt.jiangnan.edu.cn 没什么用
 
     ![image-20211114093323681](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/5.png) 
 
@@ -198,7 +198,7 @@
 
 ### (3)时间区间（`visualize_3.py`）
 
-![image-20211117164714405](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/24.pngg)
+![image-20211117164714405](https://github.com/Silence-Zoe/Learning-Log-of-Python/blob/main/2021Fall%20'Python%20Programming'%20Course%20Design/img/24.png)
 
 气泡的大小和颜色反映了频率。
 可以发现大多数活动的开始时间在下午14点到16点之间，以及18点到20点之间，而结束时间则大都在16点到18点之间，20点到22点之间，这与前面所得出的结论一致。
